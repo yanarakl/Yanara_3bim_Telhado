@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="listar()">
+    <header>
+        <h3>Cadastro de funcionario</h3>
+        <p>Gerencie os Funcionários do sistema</p>
+        <section>
+            <nav>
+                <button onclick="abrirCategoria()">Categorias</button>
+                <button onclick="abrirProduto()">Produtos</button>
+                <button onclick="abrirCliente()">Clientes</button>
+                <button onclick="abrirPedido()">Pedidos</button>
+                <button onclick="abrirPagamento()">Pagamentos</button>
+                <button onclick="abrirMenu()">Menu</button>
+            </nav>
+        </section>
+    </header>
+    <main>
+        <section>
+            <h4>Dados do funcionario</h4>
+            <label for="inputId_Funcionario">ID do Funcionário</label>
+            <div class="linha-id">
+                <input type="number" name="inputId_Funcionario" id="inputId_Funcionario" placeholder="Ex: 1" min="1">
+                <input type="button" value="Procure" id="btProcure" onclick="procure()">
+                <input type="button" value="Inserir" id="btInserir" onclick="inserir()" style="display:none;">
+                <input type="button" value="Alterar" id="btAlterar" onclick="alterar()" style="display:none;">
+                <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
+            </div>
+            <label for="inputNome_Funcionario">Nome do Funcionário</label>
+            <input type="text" name="inputNome_Funcionario" id="inputNome_Funcionario">
+
+            <label for="inputEmail_Funcionario">Email</label>
+            <input type="email" name="inputEmail_Funcionario" id="inputEmail_Funcionario">
+
+            <label for="inputCargo_Funcionario">Cargo</label>
+            <input type="text" name="inputCargo_Funcionario" id="inputCargo_Funcionario">
+
+            <div id="divAviso">Informe o ID do Funcionário e clique em Procure</div>
+
+            <div class="botoes-acao">
+                <input type="button" value="Salvar" id="btSalvar" onclick="salvar()" style="display:none;">
+                <input type="button" value="Cancelar" id="btCancelar" onclick="cancelarOperacao()"
+                    style="display:none;">
+            </div>
+        </section>
+        <section>
+            <h4>Funcionários Cadastradas</h4>
+            <div id="outputSaida">Carregando...</div>
+        </section>
+    </main>
+    <footer>
+        <p>Yanara 3bim 2026</p>
+    </footer>
+    <script src="funcionario.js"></script>
+</body>
+
+</html>

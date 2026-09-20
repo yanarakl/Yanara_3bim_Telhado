@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pedido.css">
+</head>
+
+<body onload="inicializacao()">
+    <header>
+        <h3>Cadastro de pedido</h3>
+        <p>Gerencie os pedidos do sistema</p>
+        <section>
+            <nav>
+                <button onclick="abrirCategoria()">Categorias</button>
+                <button onclick="abrirProduto()">Produtos</button>
+                <button onclick="abrirCliente()">Clientes</button>
+                <button onclick="abrirPagamento()">Pagamentos</button>
+                <button onclick="abrirFuncionario()">Funcionários</button>
+                <button onclick="abrirMenu()">Menu</button>
+            </nav>
+        </section>
+    </header>
+
+    <main>
+        <section>
+            <h4>Dados do pedido</h4>
+
+            <label for="inputId_Pedido">ID do Pedido</label>
+            <div class="linha-id">
+                <input type="number" id="inputId_Pedido" placeholder="Ex: 1" min="1">
+                <input type="button" value="Procure" id="btProcure" onclick="procure()">
+                <input type="button" value="Inserir" id="btInserir" onclick="inserir()" style="display:none;">
+                <input type="button" value="Alterar" id="btAlterar" onclick="alterar()" style="display:none;">
+                <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
+            </div>
+
+            <label for="inputData_Hora_Pedido">Data e Hora</label>
+            <input type="datetime-local" id="inputData_Hora_Pedido">
+
+            <label for="selectStatus_Pedido">Status</label>
+            <select id="selectStatus_Pedido">
+                <option value="">-- Selecione um Status --</option>
+                <option value="Pendente">Pendente</option>
+                <option value="Em preparo">Em preparo</option>
+                <option value="Pronto">Pronto</option>
+                <option value="Finalizado">Finalizado</option>
+                <option value="Cancelado">Cancelado</option>
+            </select>
+
+            <label for="inputId_Cliente_Pedido">ID do Cliente</label>
+            <input type="number" id="inputId_Cliente_Pedido" min="1" placeholder="Ex: 1">
+
+            <label for="inputValor_Total_Pedido">Valor Total</label>
+            <input type="number" id="inputValor_Total_Pedido" min="0" step="0.01" placeholder="Ex: 35.00">
+
+            <section>
+                <h4>Produtos do pedido</h4>
+
+                <label for="selectCategoria">Categoria</label>
+                <select id="selectCategoria" onchange="carregarProdutos()">
+                    <option value="">Selecione uma categoria</option>
+                </select>
+
+                <label for="selectProduto">Produto</label>
+                <select id="selectProduto">
+                    <option value="">Selecione um produto</option>
+                </select>
+
+                <label for="inputQuantidade">Quantidade</label>
+                <input type="number" id="inputQuantidade" min="1" value="1">
+
+                <input type="button" value="Adicionar produto" id="btAdicionarProduto" onclick="adicionarProduto()">
+
+                <div id="listaProdutos"></div>
+            </section>
+
+            <div id="divAviso">Informe o ID do pedido e clique em Procure</div>
+
+            <div class="botoes-acao">
+                <input type="button" value="Salvar" id="btSalvar" onclick="salvar()" style="display:none;">
+                <input type="button" value="Cancelar" id="btCancelar" onclick="cancelarOperacao()"
+                    style="display:none;">
+            </div>
+        </section>
+
+
+        <section>
+            <h4>Pedidos Cadastrados</h4>
+            <div id="outputSaida">Carregando...</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Yanara 3bim 2026</p>
+    </footer>
+
+    <script src="pedido.js"></script>
+</body>
+
+</html>

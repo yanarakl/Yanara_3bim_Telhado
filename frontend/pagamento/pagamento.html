@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Pagamento</title>
+    <link rel="stylesheet" href="pagamento.css">
+</head>
+
+<body onload="inicializacao()">
+    <header>
+        <h3>Cadastro de pagamento</h3>
+        <p>Gerencie os pagamentos do sistema</p>
+        <section>
+            <nav>
+                <button onclick="abrirCategoria()">Categorias</button>
+                <button onclick="abrirProduto()">Produtos</button>
+                <button onclick="abrirCliente()">Clientes</button>
+                <button onclick="abrirPedido()">Pedidos</button>
+                <button onclick="abrirFuncionario()">Funcionários</button>
+                <button onclick="abrirMenu()">Menu</button>
+            </nav>
+        </section>
+    </header>
+
+    <main>
+        <section>
+            <h4>Dados do pagamento</h4>
+
+            <label for="inputId_Pagamento">ID do Pagamento</label>
+            <div class="linha-id">
+                <input type="number" id="inputId_Pagamento" placeholder="Ex: 1" min="1">
+                <input type="button" value="Procure" id="btProcure" onclick="procure()">
+                <input type="button" value="Inserir" id="btInserir" onclick="inserir()" style="display:none;">
+                <input type="button" value="Alterar" id="btAlterar" onclick="alterar()" style="display:none;">
+                <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
+            </div>
+
+            <label for="SelectId_Pedido">Pedido</label>
+            <select id="SelectId_Pedido">
+                <option value="">Selecione um pedido...</option>
+            </select>
+
+            <label for="SelectForma_Pagamento">Forma de pagamento</label>
+            <select id="SelectForma_Pagamento">
+                <option value="">Selecione...</option>
+                <option value="Pix">Pix</option>
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="Credito">Crédito</option>
+                <option value="Debito">Débito</option>
+            </select>
+
+            <label for="inputValor_Pagamento">Valor</label>
+            <input type="number" id="inputValor_Pagamento" min="0" step="0.01" placeholder="Ex: 35.00">
+
+            <select id="SelectStatus_Pagamento">
+                <option value="">Selecione...</option>
+                <option value="Pendente">Pendente</option>
+                <option value="Confirmado">Confirmado</option>
+            </select>
+
+            <div id="divAviso">Informe o ID do pagamento e clique em Procure</div>
+
+            <div class="botoes-acao">
+                <input type="button" value="Salvar" id="btSalvar" onclick="salvar()" style="display:none;">
+                <input type="button" value="Cancelar" id="btCancelar" onclick="cancelarOperacao()"
+                    style="display:none;">
+            </div>
+        </section>
+
+        <section>
+            <h4>Pagamentos Cadastrados</h4>
+            <div id="outputSaida">Carregando...</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Yanara 3bim 2026</p>
+    </footer>
+
+    <script src="pagamento.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento Categoria</title>
+</head>
+<body onload="listar()">
+    <header>
+        <h3>Cadastro de categoria</h3>
+        <p>Gerencie as categorias de sistema</p>
+        <section>
+        <nav>
+            <button onclick="abrirProduto()">Produtos</button>
+            <button onclick="abrirCliente()">Clientes</button>
+            <button onclick="abrirPedido()">Pedidos</button>
+            <button onclick="abrirPagamento()">Pagamentos</button>
+            <button onclick="abrirFuncionario()">Funcionários</button>
+            <button onclick="abrirMenu()">Menu</button>
+        </nav>
+    </section>
+    </header>
+    <main>
+        <section>
+             <label for="inputId_Categoria">ID da Categoria</label>
+                <div class="linha-id">
+                    <input type="number" name="inputId_Categoria" id="inputId_Categoria" placeholder="Ex: 1" min="1">
+                    <input type="button" value="Procure" id="btProcure" onclick="procure()">
+                    <input type="button" value="Inserir" id="btInserir" onclick="inserir()" style="display:none;">
+                    <input type="button" value="Alterar" id="btAlterar" onclick="alterar()" style="display:none;">
+                    <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
+                </div>
+
+                <label for="inputNome_Categoria">Nome da Categoria</label>
+                <input type="text" name="inputNome_Categoria" id="inputNome_Categoria">
+
+                <label for="inputDescricao_Categoria">Descricao</label>
+                <input type="text" name="inputDescricao_Categoria" id="inputDescricao_Categoria">
+
+                <div id="divAviso">Informe o ID da categoria e clique em Procure</div>
+
+                <div class="botoes-acao">
+                    <input type="button" value="Salvar" id="btSalvar" onclick="salvar()" style="display:none;">
+                    <input type="button" value="Cancelar" id="btCancelar" onclick="cancelarOperacao()" style="display:none;">
+                
+        </section>
+        <section>
+            <h4>Categorias Cadastradas</h4>
+            <div id="outputSaida">Carregando...</div>
+        </section>
+    </main>
+    <footer>
+        <p>Yanara 3bim 2026</p>
+    </footer>
+
+    <script src="categoria.js"></script>
+</body>
+</html>
