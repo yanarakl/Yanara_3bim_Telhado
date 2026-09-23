@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Gerenciamento de produto</title>
+
+    <link rel="stylesheet" href="../base.css">
     <link rel="stylesheet" href="produto.css">
 </head>
 
 <body onload="inicializacao()">
+
     <header>
         <h3>Cadastro de produto</h3>
         <p>Gerencie os produtos do sistema</p>
+
         <section>
             <nav>
                 <button onclick="abrirCategoria()">Categorias</button>
@@ -25,62 +30,112 @@
     </header>
 
     <main>
+
+        <!-- Formulário + imagem -->
+        <div class="produto-formulario">
+
+            <section>
+                <h4>Dados do produto</h4>
+
+                <label for="inputId_Produto">ID do Produto</label>
+
+                <div class="linha-id">
+                    <input type="number" id="inputId_Produto" placeholder="Ex: 1" min="1">
+
+                    <input type="button" value="Procure" id="btProcure" onclick="procure()">
+
+                    <input type="button" value="Inserir" id="btInserir" onclick="inserir()" style="display:none;">
+
+                    <input type="button" value="Alterar" id="btAlterar" onclick="alterar()" style="display:none;">
+
+                    <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
+                </div>
+
+
+                <label for="inputNome_Produto">Nome do Produto</label>
+                <input type="text" id="inputNome_Produto">
+
+
+                <label for="inputDescricao_Produto">Descrição</label>
+                <input type="text" id="inputDescricao_Produto">
+
+
+                <label for="inputPreco_Produto">Preço</label>
+                <input type="number" id="inputPreco_Produto" min="0" step="0.01" placeholder="Ex: 12.50">
+
+
+                <label for="selectCategoriaProduto">Categoria</label>
+
+                <select id="selectCategoriaProduto">
+                    <option value="">Selecione uma categoria</option>
+                </select>
+
+
+                <div id="divAviso">
+                    Informe o ID do produto e clique em Procure
+                </div>
+
+
+                <div class="botoes-acao">
+                    <input type="button" value="Salvar" id="btSalvar" onclick="salvar()" style="display:none;">
+
+                    <input type="button" value="Cancelar" id="btCancelar" onclick="cancelarOperacao()"
+                        style="display:none;">
+                </div>
+
+            </section>
+
+
+            <!-- Imagem do produto -->
+            <aside class="form-direita">
+
+                <h2>Imagem do Produto</h2>
+
+                <p class="instrucao-imagem">
+                    (Clique na imagem para alterar)
+                </p>
+
+                <div class="img-container">
+
+                    <img id="imgProduto"
+                        src="http://localhost:3001/imagens/silhueta.png"
+                        alt="Imagem do Produto"
+                        onclick="acionarUpload()">
+
+                    <input type="file"
+                        id="inputImagem"
+                        accept="image/*"
+                        style="display: none;"
+                        onchange="previewImagem()">
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <!-- Produtos cadastrados -->
         <section>
-            <h4>Dados do produto</h4>
 
-            <label for="inputId_Produto">ID do Produto</label>
-            <div class="linha-id">
-                <input type="number" id="inputId_Produto" placeholder="Ex: 1" min="1">
-                <input type="button" value="Procure" id="btProcure" onclick="procure()">
-                <input type="button" value="Inserir" id="btInserir" onclick="inserir()" style="display:none;">
-                <input type="button" value="Alterar" id="btAlterar" onclick="alterar()" style="display:none;">
-                <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
-            </div>
-
-            <label for="inputNome_Produto">Nome do Produto</label>
-            <input type="text" id="inputNome_Produto">
-
-            <label for="inputDescricao_Produto">Descrição</label>
-            <input type="text" id="inputDescricao_Produto">
-
-            <label for="inputPreco_Produto">Preço</label>
-            <input type="number" id="inputPreco_Produto" min="0" step="0.01" placeholder="Ex: 12.50">
-
-            <label for="selectCategoriaProduto">Categoria</label>
-            <select id="selectCategoriaProduto">
-                <option value="">Selecione uma categoria</option>
-            </select>
-
-            <div id="divAviso">Informe o ID do produto e clique em Procure</div>
-
-            <div class="botoes-acao">
-                <input type="button" value="Salvar" id="btSalvar" onclick="salvar()" style="display:none;">
-                <input type="button" value="Cancelar" id="btCancelar" onclick="cancelarOperacao()"
-                    style="display:none;">
-            </div>
-        </section>
-
-        <aside class="form-direita">
-            <h2>Imagem do Produto</h2>
-            <p class="instrucao-imagem">(Clique na imagem para alterar)</p>
-            <div class="img-container">
-                <img id="imgProduto" src="http://localhost:3001/imagens/silhueta.png" alt="Imagem do Produto"
-                    onclick="acionarUpload()">
-                <input type="file" id="inputImagem" accept="image/*" style="display: none;" onchange="previewImagem()">
-            </div>
-        </aside>
-
-        <section>
             <h4>Produtos Cadastrados</h4>
-            <div id="outputSaida">Carregando...</div>
+
+            <div id="outputSaida">
+                Carregando...
+            </div>
+
         </section>
+
     </main>
 
+
     <footer>
-        <p>Yanara 3bim 2026</p>
+        <p>Yanara Karczetski de Lima — M32A — 2026</p>
     </footer>
 
+
     <script src="produto.js"></script>
+
 </body>
 
 </html>

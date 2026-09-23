@@ -1,40 +1,131 @@
+/* Formulário + imagem lado a lado */
+.produto-formulario {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 25px;
+    align-items: start;
+}
+
+
+/* Imagem do produto */
+.form-direita {
+    background-color: var(--bege);
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(74, 90, 56, 0.08);
+}
+
+.form-direita h2 {
+    margin-top: 0;
+    color: var(--verde-escuro);
+}
+
+.instrucao-imagem {
+    font-size: 14px;
+    color: var(--texto);
+}
+
 .img-container {
-    width: 180px;
-    height: 180px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    cursor: pointer;
-}
-
-.produto-lista {
-    display: flex;
-    gap: 20px;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-}
-
-.produto-lista img {
-    width: 100px;
-    height: 100px;
+    width: 220px;
+    height: 220px;
     object-fit: cover;
+    border-radius: 16px;
+    border: 2px solid var(--verde-claro);
+    background-color: var(--creme);
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.produto-info {
-    flex: 1;
+.img-container img:hover {
+    transform: scale(1.02);
+    border-color: var(--verde);
 }
+
+
+/* Lista de produtos */
 #outputSaida {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
 }
 
-.produto-card {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+
+/* Card de cada produto */
+.produto-lista {
+    background-color: var(--creme);
+    border: 1px solid var(--verde-claro);
+    border-radius: 14px;
+    padding: 16px;
+    transition: 0.2s;
+}
+
+.produto-lista:hover {
+    transform: translateY(-3px);
+    border-color: var(--verde);
+}
+
+
+/* Imagem do produto no card */
+.produto-lista img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 12px;
+    background-color: var(--bege);
+}
+
+
+/* Informações do produto */
+.produto-info {
+    margin-top: 12px;
+}
+
+.produto-info h4 {
+    margin: 0 0 7px;
+    color: var(--verde-escuro);
+    font-size: 18px;
+}
+
+.produto-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: var(--texto);
+}
+
+.produto-info strong {
+    display: block;
+    margin-top: 10px;
+    color: var(--terracota-escuro);
+    font-size: 17px;
+}
+
+
+/* Ajuste para telas menores */
+@media (max-width: 900px) {
+
+    .produto-formulario {
+        grid-template-columns: 1fr;
+    }
+
+    #outputSaida {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* Celular */
+@media (max-width: 600px) {
+
+    #outputSaida {
+        grid-template-columns: 1fr;
+    }
+
 }

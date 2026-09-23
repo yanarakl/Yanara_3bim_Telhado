@@ -129,16 +129,25 @@ async function salvar() {
 async function listar() {
     try {
         const resposta = await fetch(`${URL_API}/funcionario/listar`);
-
-       
         const data = await resposta.json();
-       // alert("teste "+stringify(dada))
+
         if (data.sucesso) {
             let texto = "";
+
             for (let linha of data.funcionarios) {
-                texto += `<b>[${linha.id_funcionario}]</b> - ${linha.nome_funcionario} - ${linha.email} - ${linha.cargo} <br>`;
+                texto += `
+                    <div class="funcionario-card">
+                        <span class="funcionario-id">#${linha.id_funcionario}</span>
+                        <div class="funcionario-info">
+                            <h4>${linha.nome_funcionario}</h4>
+                            <p>${linha.email}</p>
+                        </div>
+                        <span class="funcionario-cargo">${linha.cargo}</span>
+                    </div>
+                `;
             }
-            document.getElementById("outputSaida").innerHTML = texto || "Nenhum funcionario cadastrado.";
+
+            document.getElementById("outputSaida").innerHTML = texto || "Nenhum funcionário cadastrado.";
         } else {
             document.getElementById("outputSaida").innerHTML = `Erro no banco: ${data.mensagem}`;
         }

@@ -30,7 +30,7 @@ async function inicializacao() {
 async function carregarCategoria() {
 
     const select = document.getElementById("selectCategoria");
-    
+
     try {
         const resposta = await fetch(`${URL_API}/categoria/listar`);
 
@@ -50,7 +50,7 @@ async function carregarCategoria() {
 async function carregarProdutos() {
     const id_categoria = document.getElementById("selectCategoria").value;
     const select = document.getElementById("selectProduto");
-    
+
     select.innerHTML = '<option value="">-- Selecione um Produto --</option>';
 
     if (id_categoria === "") {
@@ -271,13 +271,22 @@ async function listar() {
         console.log(data.pedidos);
         if (data.sucesso) {
             let texto = "";
+
             for (let linha of data.pedidos) {
-                texto += `${linha.id_pedido} -
-                    ${linha.data_hora} -
-                    ${linha.status} -
-                    Cliente: ${linha.id_cliente} -
-                    Valor: R$ ${parseFloat(linha.valor_total).toFixed(2)}
-                    <br>`;
+                texto += `
+                    <div class="pedido-card">
+                        <div class="pedido-topo">
+                            <strong>Pedido #${linha.id_pedido}</strong>
+                            <span class="pedido-status">${linha.status}</span>
+                        </div>
+
+                        <div class="pedido-detalhes">
+                            <span>Data: ${linha.data_hora}</span>
+                            <span>Cliente: ${linha.id_cliente}</span>
+                            <strong>R$ ${parseFloat(linha.valor_total).toFixed(2)}</strong>
+                        </div>
+                    </div>
+                `;
             }
             document.getElementById("outputSaida").innerHTML =
                 texto || "Nenhum pedido cadastrado.";

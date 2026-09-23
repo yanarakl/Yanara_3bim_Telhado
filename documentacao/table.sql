@@ -235,6 +235,7 @@ INSERT INTO pagamento
 (7, 7, 'Pix', 41.00, 'Pendente'),
 (8, 8, 'Debito', 35.00, 'Confirmado'),
 (9, 9, 'Pix', 35.00, 'Pendente');
+(10, 10, 'Credito', 30.00, 'Confirmado');
 
 INSERT INTO funcionario
 (id_funcionario, nome_funcionario, email, cargo) VALUES

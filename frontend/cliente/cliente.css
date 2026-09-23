@@ -1,0 +1,49 @@
+#outputSaida {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cliente-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--creme);
+    border: 1px solid var(--verde-claro);
+    border-radius: 14px;
+    padding: 16px 20px;
+    transition: 0.2s;
+}
+
+.cliente-card:hover {
+    transform: translateX(4px);
+    border-color: var(--verde);
+}
+
+.cliente-id {
+    min-width: 45px;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--verde);
+}
+
+.cliente-info {
+    flex: 1;
+}
+
+.cliente-info h4 {
+    margin: 0 0 6px;
+    color: var(--verde-escuro);
+    font-size: 18px;
+}
+
+.cliente-info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: var(--texto);
+}
+
+.cliente-telefone {
+    color: var(--verde-escuro);
+    font-size: 14px;
+}

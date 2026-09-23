@@ -1,0 +1,80 @@
+.menu-principal {
+    text-align: center;
+}
+
+.menu-principal h4 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.menu-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.menu-cards button {
+    min-height: 150px;
+    padding: 22px;
+    border: 1px solid var(--verde-claro);
+    border-radius: 16px;
+    background-color: var(--creme);
+    color: var(--texto);
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu-cards button:hover {
+    transform: translateY(-4px);
+    border-color: var(--verde);
+    box-shadow: 0 6px 15px rgba(74, 90, 56, 0.12);
+}
+
+.menu-cards span {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--terracota);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.menu-cards strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--verde-escuro);
+    font-size: 20px;
+}
+
+.menu-cards small {
+    display: block;
+    color: var(--texto);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    margin-top: 0;
+}
+
+@media (max-width: 800px) {
+    .menu-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .menu-cards {
+        grid-template-columns: 1fr;
+    }
+}

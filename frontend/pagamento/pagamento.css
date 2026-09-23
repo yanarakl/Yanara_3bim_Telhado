@@ -1,0 +1,62 @@
+#outputSaida {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pagamento-card {
+    background-color: var(--creme);
+    border: 1px solid var(--verde-claro);
+    border-radius: 14px;
+    padding: 16px 20px;
+    transition: 0.2s;
+}
+
+.pagamento-card:hover {
+    transform: translateX(4px);
+    border-color: var(--verde);
+}
+
+.pagamento-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.pagamento-id {
+    color: var(--verde);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.pagamento-forma {
+    padding: 5px 11px;
+    border-radius: 15px;
+    background-color: var(--verde-claro);
+    color: var(--verde-escuro);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.pagamento-detalhes {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--bege);
+    font-size: 14px;
+}
+
+.pagamento-valor {
+    margin-left: auto;
+    color: var(--terracota-escuro);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.pagamento-status {
+    font-weight: bold;
+    color: var(--verde-escuro);
+}

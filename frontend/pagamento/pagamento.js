@@ -142,22 +142,37 @@ async function listar() {
     try {
         const resposta = await fetch(`${URL_API}/pagamento/listar`);
         const data = await resposta.json();
-        console.log(data.pagamentos);
+
         if (data.sucesso) {
             let texto = "";
+
             for (let linha of data.pagamentos) {
-                texto += `${linha.id_pagamento} -
-                    Pedido: ${linha.id_pedido} -
-                    Forma de Pagamento:${linha.forma_pagamento} -
-                    Valor: R$ ${parseFloat(linha.valor).toFixed(2)}
-                    Status: ${linha.status}
-                    <br>`;
+                texto += `
+                    <div class="pagamento-card">
+                        <div class="pagamento-topo">
+                            <span class="pagamento-id">Pagamento #${linha.id_pagamento}</span>
+                            <span class="pagamento-forma">${linha.forma_pagamento}</span>
+                        </div>
+
+                        <div class="pagamento-detalhes">
+                            <span>Pedido: ${linha.id_pedido}</span>
+                            <span class="pagamento-status">${linha.status}</span>
+                            <strong class="pagamento-valor">R$ ${parseFloat(linha.valor).toFixed(2)}</strong>
+                        </div>
+                    </div>
+                `;
             }
+
             document.getElementById("outputSaida").innerHTML =
                 texto || "Nenhum pagamento cadastrado.";
+        } else {
+            document.getElementById("outputSaida").innerHTML =
+                `Erro no banco: ${data.mensagem}`;
         }
     } catch (erro) {
         console.error("Erro ao listar:", erro);
+        document.getElementById("outputSaida").innerHTML =
+            "Servidor offline ou erro de conexão (CORS).";
     }
 }
 

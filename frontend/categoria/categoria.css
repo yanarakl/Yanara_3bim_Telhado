@@ -1,0 +1,44 @@
+#outputSaida {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.categoria-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--creme);
+    border: 1px solid var(--verde-claro);
+    border-radius: 14px;
+    padding: 16px 20px;
+    transition: 0.2s;
+}
+
+.categoria-card:hover {
+    transform: translateX(4px);
+    border-color: var(--verde);
+}
+
+.categoria-id {
+    min-width: 45px;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--verde);
+}
+
+.categoria-info {
+    flex: 1;
+}
+
+.categoria-info h5 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: var(--verde-escuro);
+}
+
+.categoria-info p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--texto);
+}

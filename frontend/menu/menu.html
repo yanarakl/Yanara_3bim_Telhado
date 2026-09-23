@@ -1,30 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>O Telhado</title>
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="menu.css">
 </head>
-
 <body>
-    <header>
-        <p>Gerenciamento</p>
-    </header>
-    <section>
-        <nav>
-            <button onclick="abrirCategoria()">Categorias</button>
-            <button onclick="abrirProduto()">Produtos</button>
-            <button onclick="abrirCliente()">Clientes</button>
-            <button onclick="abrirPedido()">Pedidos</button>
-            <button onclick="abrirPagamento()">Pagamentos</button>
-            <button onclick="abrirFuncionario()">Funcionários</button>
-        </nav>
-    </section>
-    <footer>
-        <p>Yanara 3bim 2026</p>
-    </footer>
-    <script src="menu.js"></script>
-</body>
+<header>
+    <h3>O Telhado</h3>
+    <p>Gerenciamento do sistema</p>
+</header>
 
+<main>
+    <section class="menu-principal">
+        <h4>O que você deseja gerenciar?</h4>
+
+        <div class="menu-cards">
+            <button onclick="abrirCategoria()">
+                <span>01</span>
+                <strong>Categorias</strong>
+                <small>Organize as categorias dos produtos</small>
+            </button>
+
+            <button onclick="abrirProduto()">
+                <span>02</span>
+                <strong>Produtos</strong>
+                <small>Cadastre e gerencie os produtos</small>
+            </button>
+
+            <button onclick="abrirCliente()">
+                <span>03</span>
+                <strong>Clientes</strong>
+                <small>Gerencie os clientes cadastrados</small>
+            </button>
+
+            <button onclick="abrirPedido()">
+                <span>04</span>
+                <strong>Pedidos</strong>
+                <small>Gerencie os pedidos realizados</small>
+            </button>
+
+            <button onclick="abrirPagamento()">
+                <span>05</span>
+                <strong>Pagamentos</strong>
+                <small>Gerencie os pagamentos dos pedidos</small>
+            </button>
+
+            <button onclick="abrirFuncionario()">
+                <span>06</span>
+                <strong>Funcionários</strong>
+                <small>Gerencie os funcionários da cafeteria</small>
+            </button>
+        </div>
+    </section>
+</main>
+
+<footer>
+        <p>Yanara Karczetski de Lima — M32A — 2026</p>
+</footer>
+
+<script src="menu.js"></script>
+</body>
 </html>

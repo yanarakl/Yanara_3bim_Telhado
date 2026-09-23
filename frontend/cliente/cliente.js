@@ -129,22 +129,34 @@ async function salvar() {
 async function listar() {
     try {
         const resposta = await fetch(`${URL_API}/cliente/listar`);
-
-       
         const data = await resposta.json();
-       // alert("teste "+stringify(dada))
+
         if (data.sucesso) {
             let texto = "";
+
             for (let linha of data.clientes) {
-                texto += `<b>[${linha.id_cliente}]</b> - ${linha.nome_cliente} - ${linha.email} - ${linha.telefone} <br>`;
+                texto += `
+                    <div class="cliente-card">
+                        <span class="cliente-id">#${linha.id_cliente}</span>
+                        <div class="cliente-info">
+                            <h4>${linha.nome_cliente}</h4>
+                            <p>${linha.email}</p>
+                        </div>
+                        <span class="cliente-telefone">${linha.telefone}</span>
+                    </div>
+                `;
             }
-            document.getElementById("outputSaida").innerHTML = texto || "Nenhum cliente cadastrado.";
+
+            document.getElementById("outputSaida").innerHTML =
+                texto || "Nenhum cliente cadastrado.";
         } else {
-            document.getElementById("outputSaida").innerHTML = `Erro no banco: ${data.mensagem}`;
+            document.getElementById("outputSaida").innerHTML =
+                `Erro no banco: ${data.mensagem}`;
         }
     } catch (erro) {
         console.error("Erro ao listar:", erro);
-        document.getElementById("outputSaida").innerHTML = "Servidor offline ou erro de conexão (CORS).";
+        document.getElementById("outputSaida").innerHTML =
+            "Servidor offline ou erro de conexão (CORS).";
     }
 }
 

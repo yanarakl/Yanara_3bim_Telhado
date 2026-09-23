@@ -1,0 +1,107 @@
+/* PRODUTOS DO PEDIDO */
+
+#listaProdutos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#listaProdutos > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background-color: var(--creme);
+    border: 1px solid var(--verde-claro);
+    border-radius: 12px;
+
+    padding: 12px 15px;
+}
+
+#listaProdutos input[type="button"] {
+    margin-left: auto;
+    padding: 7px 13px;
+    font-size: 13px;
+}
+
+#listaProdutos input[type="button"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+} 
+
+#listaProdutos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#btAdicionarProduto {
+    margin-top: 12px;
+}
+
+
+/* PEDIDOS CADASTRADOS */
+
+#outputSaida {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pedido-card {
+    background-color: var(--creme);
+    border: 1px solid var(--verde-claro);
+    border-radius: 14px;
+    padding: 16px 20px;
+    transition: 0.2s;
+}
+
+.pedido-card:hover {
+    transform: translateX(4px);
+    border-color: var(--verde);
+}
+
+.pedido-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    color: var(--verde-escuro);
+}
+
+.pedido-topo strong {
+    font-size: 18px;
+}
+
+.pedido-status {
+    padding: 5px 11px;
+    border-radius: 15px;
+
+    background-color: var(--verde-claro);
+    color: var(--verde-escuro);
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.pedido-detalhes {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    margin-top: 12px;
+    padding-top: 10px;
+
+    border-top: 1px solid var(--bege);
+
+    font-size: 14px;
+}
+
+.pedido-detalhes strong {
+    margin-left: auto;
+    color: var(--verde-escuro);
+    font-size: 16px;
+}

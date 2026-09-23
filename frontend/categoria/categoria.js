@@ -129,21 +129,35 @@ async function listar() {
     try {
         const resposta = await fetch(`${URL_API}/categoria/listar`);
 
-       
         const data = await resposta.json();
-       // alert("teste "+stringify(dada))
+
         if (data.sucesso) {
             let texto = "";
+
             for (let linha of data.categorias) {
-                texto += `<b>[${linha.id_categoria}]</b> - ${linha.nome_categoria} - ${linha.descricao_categoria} <br>`;
+                texto += `
+                    <div class="categoria-card">
+                        <span class="categoria-id">#${linha.id_categoria}</span>
+
+                        <div class="categoria-info">
+                            <h5>${linha.nome_categoria}</h5>
+                            <p>${linha.descricao_categoria}</p>
+                        </div>
+                    </div>
+                `;
             }
-            document.getElementById("outputSaida").innerHTML = texto || "Nenhuma categoria cadastrada.";
+
+            document.getElementById("outputSaida").innerHTML =
+                texto || "Nenhuma categoria cadastrada.";
         } else {
-            document.getElementById("outputSaida").innerHTML = `Erro no banco: ${data.mensagem}`;
+            document.getElementById("outputSaida").innerHTML =
+                `Erro no banco: ${data.mensagem}`;
         }
+
     } catch (erro) {
         console.error("Erro ao listar:", erro);
-        document.getElementById("outputSaida").innerHTML = "Servidor offline ou erro de conexão (CORS).";
+        document.getElementById("outputSaida").innerHTML =
+            "Servidor offline ou erro de conexão (CORS).";
     }
 }
 
